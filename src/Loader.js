@@ -1,6 +1,5 @@
 import ZipLoader from "./ZipLoader.js";
 import fs from 'fs';
-import parseArgs from 'minimist';
 
 export default class{
     constructor(init)
@@ -8,7 +7,7 @@ export default class{
         if (typeof (init) != "undefined") {
             Object.assign(this, init)
         }else{
-            this.argv = parseArgs(process.argv);
+            this.argv = process.argv;
             this.dest = "."
         }
         this.commands = {
@@ -29,7 +28,7 @@ export default class{
             },
             scrape: async ()=>{
                 try{
-                    var sUrl = this.argv._[3].replace("://", "%3A%2F%2F");
+                    var sUrl = this.argv[3].replace("://", "%3A%2F%2F");
                 }catch(e){
                     console.log(`
 usage:
@@ -45,8 +44,8 @@ usage:
     }
     async runCommand(sCommandFolder){
         let nExitCode = 0;
-        if(typeof(this.commands[this.argv._[2]]) != "undefined"){
-            nExitCode = await this.commands[this.argv._[2]](sCommandFolder);
+        if(typeof(this.commands[this.argv[2]]) != "undefined"){
+            nExitCode = await this.commands[this.argv[2]](sCommandFolder);
         }else{
             nExitCode = 2; //(not found I feel)
             console.log(`

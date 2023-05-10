@@ -2,10 +2,7 @@
   "name": "diy-pwa",
   "version": "1.0.14",
   "description": "Rapid 80% working prototype for entrepreneur engineers",
-  "bin": {
-    "diy-pwa": "diy-pwa.js",
-    "git": "git.js"
-  },
+  "bin": "index.js",
   "files": [
     "dist",
     "src/Loader.js",
@@ -23,6 +20,7 @@
       "import": "./dist/Nav.css",
       "require": "./dist/Nav.css"
     }
+
   },
   "scripts": {
     "test": "vitest run",
@@ -50,11 +48,8 @@
   "homepage": "https://diy-pwa.github.io/",
   "type": "module",
   "dependencies": {
-    "ini": "^4.1.0",
-    "isomorphic-git": "^1.23.0",
     "jszip": "^3.10.1",
-    "node-fetch": "^3.3.0",
-    "readline-sync": "^1.4.10"
+    "node-fetch": "^3.3.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
