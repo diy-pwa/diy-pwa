@@ -9,13 +9,16 @@ export default function (props) {
       setsClassName(sClassName + " hidden");
     }
   }
-
+  let sLogo = props.navData.text;
+  if(props.navData.text[0] == '/'){
+    sLogo = <img src={props.navData.text} alt="logo" />
+  }
   return (
     <nav>
       {/*<!-- Navbar (sit on top) -->*/}
       <div id="navTop">
         <a id="navHome" href={props.navData.to}>
-          {props.navData.text}
+          {sLogo}
         </a>
         {/*<!-- Right-sided navbar links -->*/}
         <div>
@@ -48,7 +51,7 @@ export default function (props) {
           id="navSideClose"
           href="#"
           onClick={toggle}
-        >&nbsp;</a>
+        ></a>
         {props.navData.items.map((item,key) => (
           <a key={key}
             href={item.to}

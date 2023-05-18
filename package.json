@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Rapid 80% working prototype for entrepreneur engineers",
   "bin": "index.js",
   "files": [
@@ -20,7 +20,6 @@
       "import": "./dist/Nav.css",
       "require": "./dist/Nav.css"
     }
-
   },
   "scripts": {
     "test": "vitest run",

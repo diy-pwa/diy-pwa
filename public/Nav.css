@@ -49,6 +49,11 @@ nav #navOpenSide {
     float: right;
 }
 
+nav #navSide a{
+    display: block;
+    text-align: left;
+}
+
 nav #navSideClose::after{
     content: 'Close \00d7';
 }
