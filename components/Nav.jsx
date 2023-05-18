@@ -48,8 +48,7 @@ export default function (props) {
           id="navSideClose"
           href="#"
           onClick={toggle}
-        >
-        </a>
+        >&nbsp;</a>
         {props.navData.items.map((item,key) => (
           <a key={key}
             href={item.to}
