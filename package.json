@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Rapid 80% working prototype for entrepreneur engineers",
   "bin": "index.js",
   "files": [
