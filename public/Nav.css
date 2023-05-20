@@ -49,6 +49,11 @@ nav #navOpenSide {
     float: right;
 }
 
+nav #navOpenSide svg{
+    height: 1em;
+}
+
+
 nav #navSide a{
     display: block;
     text-align: left;
