@@ -37,7 +37,7 @@ export default function (props) {
       </div>
 
       {/*<!-- Sidebar on small screens when clicking the menu icon -->*/}
-      <div id='navSide'
+      <div id='NavSide'
         className={sClassName}
       >
         <a id="NavSideClose"
