@@ -11,100 +11,46 @@ export default function (props) {
       setsClassName(sClassName + " w3-hide");
     }
   }
-  const NavTop = Styled.div`
-    color: #000;
-    background-color: #fff;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    overflow: hidden;
-  `;
-  const TopMenu = Styled.div`
-    display: none;
-    float: right;
-    @media (min-width: 601px){
-      display: inline-block;
-    }
-  `;
-  const NavA = Styled.a`
-    border: none;
-    display: inline-block;
-    padding: 8px 16px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    background-color: inherit;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    user-select: none;
-
-  `;
-  const NavHome = Styled(NavA)`
-    letter-spacing: 4px;
-  `;
-  const NavSideClose = Styled(NavA)`
-    padding-top: 16px;
-    padding-bottom: 16px;
-    font-size: 18px;
-  `;
-  const NavOpenSide = Styled(NavA)`
-    float: right;
-    @media (min-width: 601px){
-      display: none;
-    }
-  `;
-  const NavOpenSideSvg = Styled.span`
-    height: 1em;
-    padding-right: .5em;
-  `;
-  const NavSideA = Styled(NavA)`
-    display: block;
-    text-align: left;
-  `;
   return (
     <nav>
       {/*<!-- Navbar (sit on top) -->*/}
-      <NavTop>
-        <NavHome href={props.data.to}>
+      <div id="NavTop">
+        <a id="NavHome" href={props.data.to}>
           {props.data.logo}
-        </NavHome>
+        </a>
         {/*<!-- Right-sided navbar links -->*/}
-        <TopMenu>
+        <div id="TopMenu">
           {props.data.items.map((item, key) => (
-            <NavA key={key} href={item.to}>
+            <a key={key} href={item.to}>
               {item.text}
-            </NavA>
+            </a>
           ))}
-        </TopMenu>
+        </div>
         {/*<!-- Hide right-floated links on small screens and replace them with a menu icon -->*/}
 
-        <NavOpenSide
+        <a id="NavOpenSide"
           href="#"
           onClick={toggle}
         >
-          <NavOpenSideSvg><Bars /></NavOpenSideSvg>
-        </NavOpenSide>
-      </NavTop>
+          <Bars />
+        </a>
+      </div>
 
       {/*<!-- Sidebar on small screens when clicking the menu icon -->*/}
       <div id='navSide'
         className={sClassName}
       >
-        <NavSideClose
+        <a id="NavSideClose"
           href="#"
           onClick={toggle}
-        >{props.data.close} ×</NavSideClose>
+        >{props.data.close} ×</a>
         {props.data.items.map((item,key) => (
-          <NavSideA key={key}
+          <a key={key}
             href={item.to}
             onClick={toggle}
           >
             {item.text}
-          </NavSideA>
+          </a>
         ))}
       </div>
     </nav>

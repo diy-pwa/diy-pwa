@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Rapid 80% working prototype for entrepreneur engineers",
   "bin": "index.js",
   "files": [
@@ -15,6 +15,10 @@
     ".": {
       "import": "./dist/diy-pwa.es.js",
       "require": "./dist/diy-pwa.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "scripts": {

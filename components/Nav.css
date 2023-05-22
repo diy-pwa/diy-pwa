@@ -1,0 +1,65 @@
+nav #NavTop {
+    color: #000;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+nav #TopMenu {
+    display: none;
+    float: right;
+}
+
+nav a {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+}
+
+nav a#NavHome{
+    letter-spacing: 4px;
+}
+
+nav a#NavSideClose{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 18px;
+}
+
+nav a#NavOpenSide{
+    float: right;
+}
+
+nav a#NavOpenSide svg{
+    height: 1em;
+    padding-right: .5em;
+}
+
+div#navSide a{
+    display: block;
+    text-align: left;
+}
+
+@media (min-width: 601px) {
+    nav #TopMenu {
+        display: inline-block;
+
+    }
+    nav a#NavOpenSide{
+            display: none;    
+    }
+    
+}

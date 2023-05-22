@@ -1,0 +1,11 @@
+section#HomeHeader{
+    background-position: center;
+    background-size: cover;
+    min-height: calc(90vh - var(--header_height));
+}
+
+section#HomeHeader #HeroElement{
+    padding: 0 48px 1.5em;
+    background: rgba(0,0,0,.7);
+    margin: 0 auto;
+}
