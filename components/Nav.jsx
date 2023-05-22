@@ -57,7 +57,7 @@ export default function (props) {
       display: none;
     }
   `;
-  const NavOpenSideSvg = Styled(Bars)`
+  const NavOpenSideSvg = Styled.span`
     height: 1em;
     padding-right: .5em;
   `;
@@ -86,7 +86,7 @@ export default function (props) {
           href="#"
           onClick={toggle}
         >
-          <NavOpenSideSvg />
+          <NavOpenSideSvg><Bars /></NavOpenSideSvg>
         </NavOpenSide>
       </NavTop>
 
