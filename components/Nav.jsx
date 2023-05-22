@@ -97,7 +97,7 @@ export default function (props) {
         <NavSideClose
           href="#"
           onClick={toggle}
-        >{props.data.close} \xd7</NavSideClose>
+        >{props.data.close} ×</NavSideClose>
         {props.data.items.map((item,key) => (
           <NavSideA key={key}
             href={item.to}
