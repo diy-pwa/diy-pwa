@@ -1,2 +1,3 @@
 import Nav from '../../components/Nav.jsx';
-export { Nav };
+import HomeHeader from '../../components/HomeHeader.jsx';
+export { Nav, HomeHeader };

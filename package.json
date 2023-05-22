@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Rapid 80% working prototype for entrepreneur engineers",
   "bin": "index.js",
   "files": [
@@ -15,10 +15,6 @@
     ".": {
       "import": "./dist/diy-pwa.es.js",
       "require": "./dist/diy-pwa.umd.js"
-    },
-    "./dist/Nav.css": {
-      "import": "./dist/Nav.css",
-      "require": "./dist/Nav.css"
     }
   },
   "scripts": {
@@ -56,7 +52,9 @@
     "cheerio": "^1.0.0-rc.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "styled-components": "^6.0.0-rc.1",
     "vite": "^4.2.1",
+    "vite-plugin-css-injected-by-js": "^3.1.1",
     "vite-plugin-svgr": "^3.2.0",
     "vitest": "^0.29.8"
   }
