@@ -43,8 +43,11 @@ nav a#NavOpenSide{
     float: right;
 }
 
-nav a#NavHome svg{
+nav svg{
     height: 1em;
+}
+
+nav a#NavHome svg{
     padding-right: .5em;
 }
 
