@@ -1,10 +1,10 @@
-#contact .input-field {
+form#contact .input-field {
     position: relative;
     margin-top: 1rem;
 }
 
-#contact .input-field input,
-#contact .input-field textarea {
+form#contact .input-field input,
+form#contact .input-field textarea {
     background-color: transparent;
     border: none;
     border-bottom-color: currentcolor;
@@ -26,11 +26,11 @@
     vertical-align: top;
 }
 
-#contact .input-field svg {
+form#contact .input-field svg {
     padding-right: .8rem;
 }
 
-#contact .input-field label {
+form#contact .input-field label {
     color: #9e9e9e;
     position: absolute;
     top: 0rem;
@@ -44,12 +44,12 @@
     transition: .2s ease-out;
 }
 
-#contact form button{
+form#contact button{
     float: right;
     margin-right: 1rem;
     clear: both;
 }
 
-#contact .input-field textarea{
+form#contact .input-field textarea{
     margin-top: 1.7rem;
 }
