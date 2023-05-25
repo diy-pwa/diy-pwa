@@ -18,7 +18,11 @@ export default class{
         };
         let data = await fetch(`${this.baseUrl}/v2/catalog/list`, this.init);
         let oJson = await data.json();
-        return this.catalogueList = oJson.objects;
+        this.catalogueList = oJson.objects;
+        for(let oItem of this.catalogueList){
+            oItem.name = oItem.item_data.name;
+        }
+        return this.catalogueList;
     }
     async fetchImages(sFolder){
         if(!this.catalogueList){
