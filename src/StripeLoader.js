@@ -1,6 +1,4 @@
 import Stripe from 'stripe';
-import fetch from 'node-fetch';
-import fs from 'fs';
 
 export default class{
     constructor(init)
