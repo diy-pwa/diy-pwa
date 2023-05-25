@@ -11,6 +11,6 @@ describe("Stripe loader is to load from", () => {
     it("downloads a .list of products", async () => {
         let oStripeLoader = new StripeLoader({secretKey:oCreds.secretKey, baseUrl:"https://api.stripe.com"});
         const oCatalogue = await oStripeLoader.fetch();
-        expect(oCatalogue.objects.length).toBeGreaterThan(0);
+        expect(oCatalogue.length).toBeGreaterThan(0);
     });
 });

@@ -11,12 +11,12 @@ describe("Square loader is to load from", () => {
     it("downloads a .list of products", async () => {
         let oSquareLoader = new SquareLoader({accessToken:oCreds.accessToken, baseUrl:"https://connect.squareupsandbox.com"});
         const oCatalogue = await oSquareLoader.fetch();
-        expect(oCatalogue.objects.length).toBeGreaterThan(0);
+        expect(oCatalogue.length).toBeGreaterThan(0);
     });
     it("fetches product images", async ()=>{
         let oSquareLoader = new SquareLoader({accessToken:oCreds.accessToken, baseUrl:"https://connect.squareupsandbox.com"});
         const oCatalogue = await oSquareLoader.fetch();
         await oSquareLoader.fetchImages("test");
-        expect(oCatalogue.objects[0].item_data.images.length).toBeGreaterThan(0);
+        expect(oCatalogue[0].item_data.images.length).toBeGreaterThan(0);
     });
 });

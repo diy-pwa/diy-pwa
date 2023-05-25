@@ -17,15 +17,16 @@ export default class{
             },
         };
         let data = await fetch(`${this.baseUrl}/v2/catalog/list`, this.init);
-        return this.catalogueList = await data.json();
+        let oJson = await data.json();
+        return this.catalogueList = oJson.objects;
     }
     async fetchImages(sFolder){
         if(!this.catalogueList){
             throw new Exception("must run SquareLoader.fetch() first");
         }
         let promises = [];
-        for(let n = 0; n < this.catalogueList.objects.length; n++){
-            const oObject = this.catalogueList.objects[n];
+        for(let n = 0; n < this.catalogueList.length; n++){
+            const oObject = this.catalogueList[n];
             for(let n = 0; n < oObject.item_data.image_ids.length; n++){
                 const object_id = oObject.item_data.image_ids[n];
                 const sUrl = `${this.baseUrl}/v2/catalog/object/${object_id}`;
@@ -70,8 +71,8 @@ export default class{
             promises.push(fs.promises.writeFile(`${sFolder}/${oImage.name}`, Buffer.from(responses[n])));
         }
         await Promise.all(promises);
-        for(let n = 0; n < this.catalogueList.objects.length; n++){
-            const oObject = this.catalogueList.objects[n];
+        for(let n = 0; n < this.catalogueList.length; n++){
+            const oObject = this.catalogueList[n];
             let aImageList = [];
             for(let n = 0; n < oObject.item_data.image_ids.length; n++){
                 const object_id = oObject.item_data.image_ids[n];
