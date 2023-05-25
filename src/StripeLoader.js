@@ -12,6 +12,12 @@ export default class{
     }
     async fetch(){
         let oJson = await this.stripe.products.list();
-        return this.catalogueList = oJson.data;
+        this.catalogueList = oJson.data;
+        for(const oProduct of this.catalogueList){
+            oProduct.price = await this.stripe.prices.retrieve(
+                oProduct.default_price
+              );
+        }
+        return this.catalogueList;
     }
 }

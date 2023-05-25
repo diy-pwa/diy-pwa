@@ -13,4 +13,9 @@ describe("Stripe loader is to load from", () => {
         const oCatalogue = await oStripeLoader.fetch();
         expect(oCatalogue.length).toBeGreaterThan(0);
     });
+    it("gets prices for each item", async ()=>{
+        let oStripeLoader = new StripeLoader({secretKey:oCreds.secretKey, baseUrl:"https://api.stripe.com"});
+        const oCatalogue = await oStripeLoader.fetch();
+        expect(oCatalogue[0].price.unit_amount).toBeGreaterThan(0);
+    })
 });
