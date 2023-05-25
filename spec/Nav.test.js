@@ -6,7 +6,7 @@ import { load } from 'cheerio';
 
 describe('nav test', function () {
   it('tests for one only nav', function () {
-    const sHtml = renderToString(React.createElement(Nav, {navData: {
+    const sHtml = renderToString(React.createElement(Nav, {data: {
         text: 'Logo',
         to: '/',
         items: [{ text: 'Contact', to: 'contact'}],

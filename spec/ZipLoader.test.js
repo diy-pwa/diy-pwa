@@ -11,13 +11,13 @@ describe("Zip loader is to load from", () => {
         let oZipLoader = new ZipLoader();
         await oZipLoader.load("https://github.com/diy-pwa/diy-pwa/archive/refs/heads/main.zip", "test");
         expect(fs.existsSync("test/main.zip")).toBe(true);
-    });
+    }, 10000);
     it("unzips the file", async () => {
         let oZipLoader = new ZipLoader();
         await oZipLoader.load("https://github.com/diy-pwa/diy-pwa/archive/refs/heads/main.zip", "test");
         await oZipLoader.unzip();
         expect(fs.existsSync("test/package.json")).toBe(true);
-    });
+    },10000);
     it("backs up package.json file", async () => {
         let oZipLoader = new ZipLoader();
         try{

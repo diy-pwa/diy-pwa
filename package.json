@@ -22,7 +22,7 @@
     }
   },
   "scripts": {
-    "test": "vitest run",
+    "test": "vitest run spec",
     "build": "vite build"
   },
   "repository": {
