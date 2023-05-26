@@ -19,11 +19,25 @@ export default class{
                 const sFolderName = `${this.folder}/pages/${sLanguage}/products/${this.slugify(product.name)}`;
                 fs.mkdirSync(sFolderName, { recursive: true });
                 fs.writeFileSync(`${sFolderName}/product.json`, JSON.stringify(product));
-                fs.writeFileSync(`${sFolderName}/index.page.mdx`, 
-`import Product from '../../../components/Product.mdx';
-import oProduct from './product.json' assert {type: 'json'};
+                fs.writeFileSync(`${sFolderName}/index.page.jsx`, 
+`import Product from '../../../../components/Product.mdx';
+import oProduct from './product.json' assert { type: 'json' };
+const documentProps = {
+    title: '${product.name}',
+    description:
+      '${product.description}',
+    lang: '${sLanguage}',
+    dir: 'ltr'
+  };
 
-<Product data={oProduct} />`
+function Page(props){
+    return(
+        <Product data={oProduct} />
+    )
+}
+
+export { Page, documentProps }
+`
                 );
             }    
         }

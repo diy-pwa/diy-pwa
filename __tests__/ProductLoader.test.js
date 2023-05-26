@@ -16,13 +16,13 @@ describe("Product Loader Creates product pages and data", () => {
         await oZipLoader.unzip();
 
         const sName = "Test Product";
-        let oProductLoader = new ProductLoader({products: [{name: sName}], folder:testFolder});
+        let oProductLoader = new ProductLoader({products: [{name: sName, description: "this is a test product"}], folder:testFolder});
         await oProductLoader.createProductPages();
         expect(fs.existsSync(`${testFolder}/pages/en/products/${oProductLoader.slugify(sName)}`)).toBe(true);
         expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sName)}`)).toBe(true);
         expect(fs.existsSync(`${testFolder}/pages/en/products/${oProductLoader.slugify(sName)}/product.json`)).toBe(true);
         expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sName)}/product.json`)).toBe(true);
-        expect(fs.existsSync(`${testFolder}/pages/en/products/${oProductLoader.slugify(sName)}/index.page.mdx`)).toBe(true);
-        expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sName)}/index.page.mdx`)).toBe(true);
+        expect(fs.existsSync(`${testFolder}/pages/en/products/${oProductLoader.slugify(sName)}/index.page.jsx`)).toBe(true);
+        expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sName)}/index.page.jsx`)).toBe(true);
     });
 });
