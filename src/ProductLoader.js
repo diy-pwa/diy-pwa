@@ -28,7 +28,7 @@ export default class{
                 fs.writeFileSync(`${sFolderName}/product.json`, JSON.stringify(product));
                 fs.writeFileSync(`${sFolderName}/index.page.jsx`, 
 `import Product from '../../../../components/Product.mdx';
-import oProduct from './product.json' assert { type: 'json' };
+import oProduct from './product.json';
 const documentProps = {
     title: oProduct.name,
     description: oProduct.description,
