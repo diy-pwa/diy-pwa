@@ -9,13 +9,20 @@ export default class{
         }
     }
     slugify(sName){
-        return sName.replace(" ", "_");
+        return sName.replace(/\ /g, "_");
     }
     createProductPages(){
         const oConfig = JSON.parse(fs.readFileSync(`${this.folder}/package.json`));
         let aLanguages = oConfig["io_github_diy-pwa_languages"];
         for(let sLanguage of aLanguages){
             for(let product of this.products){
+                // need to pull other language and description from metadata
+                if(product.metadata && product.metadata[`${sLanguage}_name`]){
+                    product.name = product.metadata[`${sLanguage}_name`];
+                }
+                if(product.metadata && product.metadata[`${sLanguage}_description`]){
+                    product.description = product.metadata[`${sLanguage}_description`];
+                }
                 const sFolderName = `${this.folder}/pages/${sLanguage}/products/${this.slugify(product.name)}`;
                 fs.mkdirSync(sFolderName, { recursive: true });
                 fs.writeFileSync(`${sFolderName}/product.json`, JSON.stringify(product));
@@ -23,10 +30,9 @@ export default class{
 `import Product from '../../../../components/Product.mdx';
 import oProduct from './product.json' assert { type: 'json' };
 const documentProps = {
-    title: '${product.name}',
-    description:
-      '${product.description}',
-    lang: '${sLanguage}',
+    title: oProduct.name,
+    description: oProduct.description,
+    lang: oProduct.language,
     dir: 'ltr'
   };
 
