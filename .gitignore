@@ -105,5 +105,5 @@ dist
 .tern-port
 
 # folder for jasmine output
-test
+test*
 spec/creds.json
