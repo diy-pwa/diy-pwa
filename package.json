@@ -1,7 +1,7 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.27",
-  "description": "Rapid 80% working prototype for entrepreneur engineers",
+  "version": "1.0.28",
+  "description": "Rapid 80% working prototype for sales engineers",
   "bin": "index.js",
   "files": [
     "dist",
@@ -47,6 +47,7 @@
   "homepage": "https://diy-pwa.github.io/",
   "type": "module",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "jszip": "^3.10.1",
     "node-fetch": "^3.3.0"
   },
