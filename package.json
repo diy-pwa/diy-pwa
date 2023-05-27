@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "Rapid 80% working prototype for sales engineers",
   "bin": "index.js",
   "files": [
@@ -9,6 +9,7 @@
     "src/StripeLoader.js",
     "src/ProductLoader.js",
     "src/ZipLoader.js",
+    "src/question.js",
     "README.md"
   ],
   "main": "./dist/diy-pwa.umd.js",
