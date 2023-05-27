@@ -24,6 +24,7 @@ export default class{
                     product.description = product.metadata[`${oLanguage.language}_description`];
                 }
                 const sFolderName = `${this.folder}/pages/${oLanguage.language}/products/${this.slugify(product.name)}`;
+                product.path= `${oLanguage.language}/products/${this.slugify(product.name)}`;
                 fs.mkdirSync(sFolderName, { recursive: true });
                 fs.writeFileSync(`${sFolderName}/product.json`, JSON.stringify(product));
                 fs.writeFileSync(`${sFolderName}/index.page.jsx`, 
