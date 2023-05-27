@@ -14,16 +14,16 @@ export default class{
     createProductPages(){
         const oConfig = JSON.parse(fs.readFileSync(`${this.folder}/package.json`));
         let aLanguages = oConfig["io_github_diy-pwa_languages"];
-        for(let sLanguage of aLanguages){
+        for(let oLanguage of aLanguages){
             for(let product of this.products){
                 // need to pull other language and description from metadata
-                if(product.metadata && product.metadata[`${sLanguage}_name`]){
-                    product.name = product.metadata[`${sLanguage}_name`];
+                if(product.metadata && product.metadata[`${oLanguage.language}_name`]){
+                    product.name = product.metadata[`${oLanguage.language}_name`];
                 }
-                if(product.metadata && product.metadata[`${sLanguage}_description`]){
-                    product.description = product.metadata[`${sLanguage}_description`];
+                if(product.metadata && product.metadata[`${oLanguage.language}_description`]){
+                    product.description = product.metadata[`${oLanguage.language}_description`];
                 }
-                const sFolderName = `${this.folder}/pages/${sLanguage}/products/${this.slugify(product.name)}`;
+                const sFolderName = `${this.folder}/pages/${oLanguage.language}/products/${this.slugify(product.name)}`;
                 fs.mkdirSync(sFolderName, { recursive: true });
                 fs.writeFileSync(`${sFolderName}/product.json`, JSON.stringify(product));
                 fs.writeFileSync(`${sFolderName}/index.page.jsx`, 
@@ -32,8 +32,8 @@ import oProduct from './product.json';
 const documentProps = {
     title: oProduct.name,
     description: oProduct.description,
-    lang: oProduct.language,
-    dir: 'ltr'
+    lang: '${oLanguage.language}',
+    dir: '${oLanguage.direction}'
   };
 
 function Page(props){
