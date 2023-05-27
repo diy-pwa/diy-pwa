@@ -1,7 +1,6 @@
 import ZipLoader from "./ZipLoader.js";
 import StripeLoader from "./StripeLoader.js";
 import ProductLoader from "./ProductLoader.js";
-import question from './question.js';
 
 import fs from 'fs';
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
@@ -10,10 +9,10 @@ dotenv.config()
 export default class{
     constructor(init)
     {
+        this.argv = process.argv;
         if (typeof (init) != "undefined") {
             Object.assign(this, init)
-        }else{
-            this.argv = process.argv;
+        }else{          
             this.dest = "."
         }
         this.commands = {
@@ -49,13 +48,9 @@ usage:
             fetch: async ()=>{
                 let sCatalogue = this.argv[3];
                 let oCatalogue = null;
-                let sSecret =this.argv[4] ||  process.env.secretKey;
-                if(!sSecret){
-                    sSecret = await question("enter your secret key: ");
-                }
                 switch(sCatalogue){
                     case "stripe":
-                        let oStripeLoader = new StripeLoader({secretKey:sSecret, baseUrl:"https://api.stripe.com"});
+                        let oStripeLoader = new StripeLoader({secretKey:this.sSecret, baseUrl:"https://api.stripe.com"});
                         oCatalogue = await oStripeLoader.fetch();
                         break;
                     default:
