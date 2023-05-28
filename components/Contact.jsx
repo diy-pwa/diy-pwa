@@ -24,7 +24,7 @@ export default (props) => {
             </div>
             <div className="w3-row">
                 <div className="w3-col s12">
-                    <button className="btn" type="submit">
+                    <button className="w3-button" type="submit">
                         Submit <PaperAirplane />
                     </button>
                 </div>

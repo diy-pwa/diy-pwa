@@ -1,0 +1,8 @@
+#productsGrid{
+    clear: both;
+    margin-bottom: 2px;
+}
+
+#productsGrid img{
+    padding: 1.5em 0 2.5em;
+}
