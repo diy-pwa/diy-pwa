@@ -27,23 +27,18 @@ export default class{
                 product.path= `/${oLanguage.language}/products/${this.slugify(product.name)}`;
                 fs.mkdirSync(sFolderName, { recursive: true });
                 fs.writeFileSync(`${sFolderName}/product.json`, JSON.stringify(product));
-                fs.writeFileSync(`${sFolderName}/index.page.jsx`, 
+                fs.writeFileSync(`${sFolderName}/index.page.mdx`, 
 `import Product from '../../../../components/${oLanguage.language}/Product.mdx';
 import oProduct from './product.json';
-const documentProps = {
+export const documentProps = {
     title: oProduct.name,
     description: oProduct.description,
     lang: '${oLanguage.language}',
     dir: '${oLanguage.direction}'
   };
 
-function Page(props){
-    return(
-        <Product data={oProduct} />
-    )
-}
-
-export { Page, documentProps }
+<Product data={oProduct}>
+</Product>
 `
                 );
             }    
