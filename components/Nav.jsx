@@ -4,8 +4,8 @@ import { ReactComponent as Bars} from './svgs/solid/bars.svg';
 export default function (props) {
   const [sClassName, setsClassName] = useState("w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large w3-hide");
   function toggle() {
-    if (sClassName.includes("w3-hide")) {
-      setsClassName(sClassName.replace(" w3-hide", ""));
+    if (sClassName.match(/w3-hide$/)) {
+      setsClassName(sClassName.replace(/\sw3-hide$/, ""));
     } else {
       setsClassName(sClassName + " w3-hide");
     }
