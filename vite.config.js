@@ -5,19 +5,17 @@ import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
   build: {
+    outDir: "./dist",
     lib: {
-      entry: path.resolve(__dirname, 'src/lib/index.jsx'),
-      name: 'diy-pwa',
-      fileName: (format) => `diy-pwa.${format}.js`
+      name: "diy-pwa",
+      entry: [
+        path.resolve(__dirname, 'src/lib/index.js'),
+        path.resolve(__dirname, 'src/lib/components.js'),
+      ],
+      fileName: (format, entryName) => {
+        return `js/${entryName}.${format}.js`;
+      },
     },
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React'
-        }
-      }
-    }
   },
   plugins: [svgr(), react()]
 })
