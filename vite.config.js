@@ -10,12 +10,16 @@ export default defineConfig({
       name: "diy-pwa",
       entry: [
         path.resolve(__dirname, 'src/lib/index.js'),
-        path.resolve(__dirname, 'src/lib/components.js'),
+        path.resolve(__dirname, 'src/lib/components.jsx'),
       ],
       fileName: (format, entryName) => {
         return `js/${entryName}.${format}.js`;
       },
     },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+    },
+  
   },
   plugins: [svgr(), react()]
 })

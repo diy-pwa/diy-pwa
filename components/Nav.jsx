@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Styled from 'styled-components';
 import { ReactComponent as Bars} from './svgs/solid/bars.svg';
 
 export default function (props) {
