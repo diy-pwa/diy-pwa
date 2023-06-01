@@ -1,7 +1,5 @@
 // Array of supported localizations
-import config from '../package.json' assert {type: 'json'};
-
-export default ()=>{
+export default (config)=>{
     const sAccept = navigator.language;
     const languages = config['io_github_diy-pwa_languages'];
     let sLang = null;
