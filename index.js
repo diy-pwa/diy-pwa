@@ -1,8 +1,21 @@
 #!/usr/bin/env node
 
-import Loader from './src/Loader.js';
-import question from './src/question.js';
+import { Loader } from './dist/js/index.es.js';
 import ora from 'ora';
+import readline from 'node:readline';
+
+const question = (sQuestion) => {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    return new Promise((resolve, reject) => {
+        rl.question(sQuestion, (answer) => {
+            rl.close();
+            resolve(answer);
+        });
+    });
+};
 
 async function main(){
     let oLoader = null;

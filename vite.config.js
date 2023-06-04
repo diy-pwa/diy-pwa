@@ -17,7 +17,7 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'fs', 'url', 'path', 'node:url', 'node:http', 'node-fetch'],
     },
   
   },
