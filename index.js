@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Loader } from './dist/js/index.es.js';
+import { Loader } from './dist/js/node.es.js';
 import ora from 'ora';
 import readline from 'node:readline';
 
