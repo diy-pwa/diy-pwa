@@ -23,7 +23,7 @@ describe("Product Loader Creates product pages and data", () => {
         expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sFrenchName)}`)).toBe(true);
         expect(fs.existsSync(`${testFolder}/pages/en/products/${oProductLoader.slugify(sName)}/product.json`)).toBe(true);
         expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sFrenchName)}/product.json`)).toBe(true);
-        expect(fs.existsSync(`${testFolder}/pages/en/products/${oProductLoader.slugify(sName)}/index.page.jsx`)).toBe(true);
-        expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sFrenchName)}/index.page.jsx`)).toBe(true);
+        expect(fs.existsSync(`${testFolder}/pages/en/products/${oProductLoader.slugify(sName)}/index.page.mdx`)).toBe(true);
+        expect(fs.existsSync(`${testFolder}/pages/fr/products/${oProductLoader.slugify(sFrenchName)}/index.page.mdx`)).toBe(true);
     });
 });
