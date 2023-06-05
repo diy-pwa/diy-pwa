@@ -1,2 +1,4 @@
 import getSupportedLanguage from '../languages.js';
-export { getSupportedLanguage };
+import readRequestBody from '../readRequestBody.js';
+import Sendgrid from '../Sendgrid.js';
+export { getSupportedLanguage, readRequestBody, Sendgrid };
