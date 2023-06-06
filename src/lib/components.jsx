@@ -11,4 +11,5 @@ import Product from '../../components/Product.jsx';
 import '../../components/Product.css';
 import ProductSection from '../../components/ProductSection.jsx';
 import '../../components/ProductSection.css';
-export { Nav, Main, Footer, Contact, HomeHeader, Product, ProductSection };
+import DaysLeft from '../../components/DaysLeft.jsx';
+export { Nav, Main, Footer, Contact, HomeHeader, Product, ProductSection, DaysLeft };
