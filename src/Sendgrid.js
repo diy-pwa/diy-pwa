@@ -1,35 +1,36 @@
-export default class {
-    constructor(init) {
-        if (typeof (init) != "undefined") {
-            Object.assign(this, init)
-        }
+import readRequestBody from './readRequestBody.js';
+export default {
+  async fetch(request, env) {
+    if (request.method != "POST") {
+      throw new Error("email must be post request");
     }
-    async email() {
-        const oBody = {
-            'from': {
-                'email': this.from,
+    const dynamic_template_data = await readRequestBody(request);
+    const oBody = {
+      'from': {
+        'email': env.FROM,
+      },
+      'personalizations': [
+        {
+          'to': [
+            {
+              'email': env.TO,
             },
-            'personalizations': [
-                {
-                    'to': [
-                        {
-                            'email': this.to,
-                        },
-                    ],
-                    'dynamic_template_data': this.dynamic_template_data,
-                },
-            ],
-            'template_id': this.template_id,
-        };
-        const oHeaders = new Headers();
-        oHeaders.append('Authorization', `Bearer ${this.accessToken}`);
-        oHeaders.append('Content-Type', 'application/json');
+          ],
+          'dynamic_template_data': dynamic_template_data,
+        },
+      ],
+      'template_id': env.TEMPLATE,
+    };
+    const oHeaders = new Headers();
+    oHeaders.append('Authorization', `Bearer ${env.ACCESS_TOKEN}`);
+    oHeaders.append('Content-Type', 'application/json');
 
-        const email = await fetch('https://api.sendgrid.com/v3/mail/send', {
-            body: JSON.stringify(oBody),
-            headers: oHeaders,
-            method: 'POST',
-        });
-        return email;
-    }
-}
+    const email = await fetch('https://api.sendgrid.com/v3/mail/send', {
+      body: JSON.stringify(oBody),
+      headers: oHeaders,
+      method: 'POST',
+    });
+    return email;
+
+  }
+};

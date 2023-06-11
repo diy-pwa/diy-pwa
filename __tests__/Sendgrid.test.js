@@ -1,11 +1,30 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import Sendgrid from "../src/Sendgrid.js";
-import oCreds from './creds.json' assert { type: "json" };
+import { describe, it, expect } from 'vitest';
+import request from 'supertest';
+import createApp from './ExpressFixture.js';
 
-describe("Sendgrid to send email from contact form", () => {
-    it("sends an email", async () => {
-        let oSendgrid = new Sendgrid({accessToken:oCreds.accessToken, to:"rhildred@gmail.com", from: "rhildred@salesucation.com", template_id: "d-f512978006da4454a0a39c0b49d97781", dynamic_template_data: {name:"Rich Hildred", email:"rhildred@gmail.com", message:"hi there"}});
-        const rc = await oSendgrid.email();
-        expect(rc.status).toBe(202);
+describe("tests email cloudflare worker", ()=>{
+    it("sends email json encoding", async () =>{
+        const app = createApp();
+        const res = await request(app)
+        .post('/api/contact')
+        .send({name: "Rich Hildred", email:"rhildred@gmail.com", message:"Hi there from json."})
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json');
+        if(res.status != 202){
+            console.log(res.body);
+        }
+        expect(res.status).toBe(202);
     });
-});
+    it("sends email application/x-www-form-urlencoded encoding", async () =>{
+        const app = createApp();
+        const res = await request(app)
+        .post('/api/contact')
+        .send("name=Rich&email=rhildred%40gmail.com&message=Hi+there+from+Rich+from+form")
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .set('Accept', 'application/x-www-form-urlencoded');
+        if(res.status != 202){
+            console.log(res.body);
+        }
+        expect(res.status).toBe(202);
+    });
+})
