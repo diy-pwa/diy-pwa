@@ -24,9 +24,16 @@ export default (props) => {
               'Content-Type': 'application/json; charset=UTF-8'
             })
         });
-        toast.success(props.data.contact.thank_you, {
-            position: toast.POSITION.BOTTOM_CENTER
-        });
+        if(res.status == 200){
+            toast.success(props.data.contact.thank_you, {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
+            setInputs({ name: "", email: "", message: "" });
+        }else{
+            toast.error(`${res.status} ${res.statusText}`, {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
+        }
     }
 
 
