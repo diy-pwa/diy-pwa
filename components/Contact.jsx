@@ -17,7 +17,7 @@ export default (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const res= await fetch('/api/email', {
+        const res= await fetch('/api/contact', {
             method: 'POST',
             body: JSON.stringify(inputs),
             headers: new Headers({
