@@ -4,10 +4,21 @@ import fs from 'fs';
 import url from 'url';
 import path from 'path';
 export default class{
-    async load(sPath, sDest){
+    async load(sPath, sDest, oBody){
         this.path = sPath;
         this.dest = sDest;
-        const oResponse = await fetch(this.path);
+        var oResponse;
+        if(oBody){
+            const oHeaders = new Headers();
+            oHeaders.append('Content-Type', 'application/json');        
+            oResponse = await fetch(this.path, {
+                method: "POST",
+                headers: oHeaders,
+                body: JSON.stringify(oBody)
+            });
+        }else{
+            oResponse = await fetch(this.path);
+        }
         const oBlob = await oResponse.blob();
         const oParsed = url.parse(this.path);
         const sOutfile = `${sDest}/${path.basename(oParsed.pathname)}`;
