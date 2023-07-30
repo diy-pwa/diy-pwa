@@ -1,6 +1,6 @@
 import Function from '../../components/Function';
 
-async function sayHello(name) {
+function sayHello(name) {
   return `hello ${name}`;
 }
 
