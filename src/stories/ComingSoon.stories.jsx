@@ -3,8 +3,7 @@ import {DaysLeft} from "diy-pwa/components";
 
 export default{
     component: ComingSoon,
-    title: "components/ComingSoon",
-    args: ['autodocs'],
+    title: "components/ComingSoon"
 }
 
 export const en ={
