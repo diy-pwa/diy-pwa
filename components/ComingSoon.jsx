@@ -1,6 +1,5 @@
 import "w3-css/w3.css";
 import "./ComingSoon.css";
-import {DaysLeft} from "diy-pwa/components"
 
 export default (args)=>{
     return( 

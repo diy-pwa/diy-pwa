@@ -12,5 +12,6 @@ import '../../components/Product.css';
 import ProductSection from '../../components/ProductSection.jsx';
 import '../../components/ProductSection.css';
 import DaysLeft from '../../components/DaysLeft.jsx';
-import ComingSoon from '../../components/ComingSoon.jsx'
-export { Nav, Main, Footer, Contact, HomeHeader, Product, ProductSection, DaysLeft, ComingSoon};
+import ComingSoon from '../../components/ComingSoon.jsx';
+import Button from '../../components/Button.jsx';
+export { Nav, Main, Footer, Contact, HomeHeader, Product, ProductSection, DaysLeft, ComingSoon, Button};
