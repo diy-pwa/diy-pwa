@@ -19,7 +19,7 @@ export const en ={
 export const fr ={
     args:{
         title: "Bientôt disponible",
-        tagline: <h2> ... dans <DaysLeft readyDate="2023=09-05" /> jours</h2>,
+        tagline: <h2> ... dans <DaysLeft readyDate="2023-09-05" /> jours</h2>,
         backgroundImage: "/img/forestbridge.jpg",
         logo: "Logo",
         footer: "Alimenté par"
