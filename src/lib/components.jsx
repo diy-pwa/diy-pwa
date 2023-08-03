@@ -14,4 +14,5 @@ import '../../components/ProductSection.css';
 import DaysLeft from '../../components/DaysLeft.jsx';
 import ComingSoon from '../../components/ComingSoon.jsx';
 import Button from '../../components/Button.jsx';
-export { Nav, Main, Footer, Contact, HomeHeader, Product, ProductSection, DaysLeft, ComingSoon, Button};
+import StoryFooter from '../../components/StoryFooter.jsx';
+export { Nav, Main, Footer, Contact, HomeHeader, Product, ProductSection, DaysLeft, ComingSoon, Button, StoryFooter};

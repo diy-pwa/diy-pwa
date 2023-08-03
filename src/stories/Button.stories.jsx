@@ -34,6 +34,15 @@ export const Small = {
 This is a long
 test    
     `,
-    images:["1","2"]
+    href:"https://google.com"
+  },
+};
+
+export const Medium = {
+  args: {
+    size: 'medium',
+    label: `Next`,
+    primary: 'true',
+    href:"https://google.com"
   },
 };
