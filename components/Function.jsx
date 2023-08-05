@@ -6,7 +6,7 @@ export default function Function(props) {
   const [theData, setData] = useState([]);
   useEffect(() => {
     (async () => {
-      const theData = await props.function(...args);
+      const theData = await props.function(...props.args);
       setData(theData);
     })();
 
@@ -15,7 +15,6 @@ export default function Function(props) {
     };
   }, []);
   if (!theData) return <div>Loading...</div>;
-  const args = props.args[0].args;
   const formatter = (arg, i) => {
     let theOutput = '';
     if (i > 0) {
@@ -27,7 +26,7 @@ export default function Function(props) {
   return (
     <>
       {props.function.name}(
-      {args.map((arg) => (
+      {props.args.map((arg) => (
         <>{formatter(arg)}</>
       ))}
       )<p>Results:</p>
