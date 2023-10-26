@@ -28,6 +28,7 @@ describe("Loader is to load from the command line", () => {
 }        
         `);
         await oLoader.runCommand();
-        expect(fs.existsSync("test/package.json")).toBe(true);
+        expect(fs.existsSync("test/.gitignore")).toBe(true);
+        expect(fs.existsSync("test/.github/workflow/pages.yml")).toBe(true);
     });
 });
