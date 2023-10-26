@@ -40,66 +40,38 @@ package-lock.json
                 if(!fs.existsSync(`${this.dest}/.github/workflows/pages.yml`)){
                     fs.mkdirSync(`${this.dest}/.github/workflows/`, { recursive: true });
                     fs.writeFileSync(`${this.dest}/.github/workflows/pages.yml`,
-`# Simple workflow for deploying static content to GitHub Pages
-name: Deploy to Pages
+`# Created by MichaelCurrin
+# https://gist.github.com/MichaelCurrin/a698731096f78240f653faf9a9127cba
+
+name: Build and deploy 
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ['master']
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-  
-env:
-  VITE_BASE: /\${{github.event.repository.name}}/
+    branches:
+      - main
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: \${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
         with:
-          version: latest
-      - run: pnpm i --fix-lockfile # Fix version differences
-      - name: Set up Node
-        uses: actions/setup-node@v3
+          persist-credentials: false
+          submodules: true  # TODO remove this if not using submodules in Hexo
+
+      - name: Install 🔧
+        run: npm install
+
+      - name: Build 🏗️
+        run: |
+          npm run build
+      - name: Deploy to GH Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          node-version: lts/*
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: npm i -g @antfu/ni && ni
-      - name: Build
-        run: npx vite build
-      - name: Pages subfolder fix
-        run: cp -r dist /tmp/vslite && mv /tmp/vslite dist/vslite
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload dist repository
-          path: './dist'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          github_token: \${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
 `);
                 }
             },
