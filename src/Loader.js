@@ -15,21 +15,20 @@ export default class{
         }
         this.commands = {
             convert: async ()=>{
-                const oContents = JSON.parse(fs.readFileSync(`${this.dest}/package.json`).toString());
-                let isChanged = false;
-                for(const sDependency of Object.keys(oContents.dependencies)){
-                    if(sDependency == "parcel-bundler"){
-                        isChanged = true;
-                        delete oContents.dependencies[sDependency];
-                        oContents.devDependencies.vite = "latest";
-                        oContents.devDependencies.glob = "latest";
-                        oContents.scripts.start = oContents.scripts.dev = "vite dev";
-                        oContents.scripts.build = "vite build";
+                let oContents = {devDependencies:{},scripts:{}};
+                if(fs.existsSync(`${this.dest}/package.json`)){
+                    oContents = JSON.parse(fs.readFileSync(`${this.dest}/package.json`).toString());
+                    for(const sDependency of Object.keys(oContents.dependencies)){
+                        if(sDependency == "parcel-bundler"){
+                            delete oContents.dependencies[sDependency];
+                        }
                     }
                 }
-                if(isChanged){
-                    fs.writeFileSync(`${this.dest}/package.json`, JSON.stringify(oContents, null, 2));
-                }
+                oContents.devDependencies.vite = "latest";
+                oContents.devDependencies.glob = "latest";
+                oContents.scripts.start = oContents.scripts.dev = "vite dev";
+                oContents.scripts.build = "vite build";
+                fs.writeFileSync(`${this.dest}/package.json`, JSON.stringify(oContents, null, 2));
                 if(!fs.existsSync(`${this.dest}/.gitignore`)){
                     fs.writeFileSync(`${this.dest}/.gitignore`, 
 `.env
