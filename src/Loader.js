@@ -26,6 +26,7 @@ export default class{
                 }
                 oContents.devDependencies.vite = "latest";
                 oContents.devDependencies.glob = "latest";
+                oContents.devDependencies["vite-plugin-static-copy"] = "latest";
                 oContents.scripts.start = oContents.scripts.dev = "vite dev";
                 oContents.scripts.build = "vite build";
                 fs.writeFileSync(`${this.dest}/package.json`, JSON.stringify(oContents, null, 2));
@@ -41,13 +42,26 @@ package-lock.json
                     fs.writeFileSync(`${this.dest}/vite.config.js`,
 `import path from "path";
 import { glob } from "glob";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default {
+    plugins: [
+        viteStaticCopy({
+            targets: [
+                {
+                    src: 'README.md',
+                    dest: ''
+                }
+            ]
+        })
+    ],
+
     build: {
         outDir: path.join(__dirname, "dist"),
         rollupOptions: {
             input: glob.sync(path.resolve(__dirname, ".", "**/*.html"),
-            {ignore:["dist/**", "src/**", "public/**", "functions/**"]}),
+                { ignore: ["dist/**", "src/**", "public/**", "functions/**"] }),
+
         },
     },
 };
