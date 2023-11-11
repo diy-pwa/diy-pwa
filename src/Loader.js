@@ -53,6 +53,19 @@ export default {
 };
 `);
                 }
+                if(!fs.existsSync(`${this.dest}/index.html`)){
+                    fs.writeFileSync(`${this.dest}/index.html`,
+`<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <x-markdown2html src="README.md"></x-markdown2html>
+    <script src="https://custom-element.pages.dev/custom-element.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+`);
+                }
             },
             create: async ()=>{
                 const oZipLoader = new ZipLoader();
