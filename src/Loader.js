@@ -22,6 +22,7 @@ export default class{
                         isChanged = true;
                         delete oContents.dependencies[sDependency];
                         oContents.devDependencies.vite = "latest";
+                        oContents.devDependencies.glob = "latest";
                         oContents.scripts.start = oContents.scripts.dev = "vite dev";
                         oContents.scripts.build = "vite build";
                     }
@@ -37,41 +38,20 @@ dist
 package-lock.json
 `);
                 }
-                if(!fs.existsSync(`${this.dest}/.github/workflows/pages.yml`)){
-                    fs.mkdirSync(`${this.dest}/.github/workflows/`, { recursive: true });
-                    fs.writeFileSync(`${this.dest}/.github/workflows/pages.yml`,
-`# Created by MichaelCurrin
-# https://gist.github.com/MichaelCurrin/a698731096f78240f653faf9a9127cba
+                if(!fs.existsSync(`${this.dest}/vite.config.js`)){
+                    fs.writeFileSync(`${this.dest}/vite.config.js`,
+`import path from "path";
+import { glob } from "glob";
 
-name: Build and deploy 
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          submodules: true  # TODO remove this if not using submodules in Hexo
-
-      - name: Install 🔧
-        run: npm install
-
-      - name: Build 🏗️
-        run: |
-          npm run build
-      - name: Deploy to GH Pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: \${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+export default {
+    build: {
+        outDir: path.join(__dirname, "dist"),
+        rollupOptions: {
+            input: glob.sync(path.resolve(__dirname, ".", "**/*.html"),
+            {ignore:["dist/**", "src/**", "public/**", "functions/**"]}),
+        },
+    },
+};
 `);
                 }
             },
