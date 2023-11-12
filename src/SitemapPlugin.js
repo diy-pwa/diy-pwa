@@ -15,12 +15,12 @@ export default () => {
             }
             Object.assign(oConfig, resolvedConfig)
             let sSitemap = `<?xml version="1.0" encoding="UTF-8"?>
-            <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            `
-            const aInputItems = glob.sync(path.resolve(__dirname, ".", "**/*.html"),
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`
+            const aInputItems = glob.sync(path.resolve(oConfig.root, "**/*.html"),
                 { ignore: ["dist/**", "src/**", "public/**", "functions/**"] });
             for (const item of aInputItems) {
-                sSitemap += `\t<url><loc>${oConfig.homepage}${item.replace(__dirname, "")}</loc></url>\n`
+                sSitemap += `\t<url><loc>${oConfig.homepage}${item.replace(oConfig.root, "")}</loc></url>\n`
             }
             sSitemap += "</urlset>";
             const sOutdir = path.resolve(oConfig.publicDir);
