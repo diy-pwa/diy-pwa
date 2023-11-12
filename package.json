@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.92",
+  "version": "1.0.93",
   "description": "Rapid 80% working prototype for sales engineers",
   "bin": "index.js",
   "files": [
