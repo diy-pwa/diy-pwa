@@ -24,6 +24,7 @@ export default class{
                         }
                     }
                 }
+                oContents.devDependencies["diy-pwa"] = "latest";
                 oContents.devDependencies.vite = "latest";
                 oContents.devDependencies.glob = "latest";
                 oContents.devDependencies["vite-plugin-static-copy"] = "latest";
