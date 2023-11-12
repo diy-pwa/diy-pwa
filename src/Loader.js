@@ -24,10 +24,10 @@ export default class{
                         }
                     }
                 }
-                oContents.devDependencies["diy-pwa"] = "latest";
                 oContents.devDependencies.vite = "latest";
                 oContents.devDependencies.glob = "latest";
                 oContents.devDependencies["vite-plugin-static-copy"] = "latest";
+                oContents.devDependencies["diy-pwa"] = "latest";
                 oContents.scripts.start = oContents.scripts.dev = "vite dev";
                 oContents.scripts.build = "vite build";
                 fs.writeFileSync(`${this.dest}/package.json`, JSON.stringify(oContents, null, 2));
