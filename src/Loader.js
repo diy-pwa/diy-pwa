@@ -43,9 +43,11 @@ package-lock.json
 `import path from "path";
 import { glob } from "glob";
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { SitemapPlugin } from 'diy-pwa';
 
 export default {
     plugins: [
+        SitemapPlugin(),
         viteStaticCopy({
             targets: [
                 {
@@ -74,6 +76,7 @@ export default {
 
 <body>
     <x-markdown2html src="README.md"></x-markdown2html>
+    <x-sitemap />
     <script src="https://custom-element.pages.dev/custom-element.js" crossorigin="anonymous"></script>
 </body>
 
