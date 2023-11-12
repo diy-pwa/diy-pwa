@@ -30,6 +30,7 @@ export default class{
                 oContents.devDependencies["diy-pwa"] = "latest";
                 oContents.scripts.start = oContents.scripts.dev = "vite dev";
                 oContents.scripts.build = "vite build";
+                oContents.type="module";
                 fs.writeFileSync(`${this.dest}/package.json`, JSON.stringify(oContents, null, 2));
                 if(!fs.existsSync(`${this.dest}/.gitignore`)){
                     fs.writeFileSync(`${this.dest}/.gitignore`, 
