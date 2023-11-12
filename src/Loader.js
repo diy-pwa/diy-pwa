@@ -44,7 +44,7 @@ package-lock.json
 `import path from "path";
 import { glob } from "glob";
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import { SitemapPlugin } from 'diy-pwa';
+import { SitemapPlugin } from 'diy-pwa/node';
 
 export default {
     plugins: [
