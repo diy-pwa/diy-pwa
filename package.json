@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.90",
+  "version": "1.0.91",
   "description": "Rapid 80% working prototype for sales engineers",
   "bin": "index.js",
   "files": [
@@ -55,6 +55,7 @@
   "homepage": "https://diy-pwa.github.io/",
   "type": "module",
   "dependencies": {
+    "glob": "^10.3.10",
     "node-fetch": "^3.3.0",
     "ora": "^6.3.1"
   },
