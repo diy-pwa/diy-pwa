@@ -1,21 +1,19 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.87",
+  "version": "1.0.88",
   "description": "Rapid 80% working prototype for sales engineers",
   "bin": "index.js",
   "files": [
     "dist"
   ],
-  "main": "./dist/diy-pwa.umd.js",
-  "module": "./dist/diy-pwa.es.js",
   "exports": {
     "./node": {
       "import": "./dist/js/node.es.js",
-      "require": "./dist/js/node.umd.js"
+      "require": "./dist/js/node.cjs.js"
     },
     "./components": {
       "import": "./dist/js/components.es.js",
-      "require": "./dist/js/components.umd.js"
+      "require": "./dist/js/components.cjs.js"
     },
     "./style.css": {
       "import": "./dist/style.css",
@@ -23,7 +21,7 @@
     },
     ".": {
       "import": "./dist/js/index.es.js",
-      "require": "./dist/js/index.umd.js"
+      "require": "./dist/js/index.cjs.js"
     }
   },
   "scripts": {
