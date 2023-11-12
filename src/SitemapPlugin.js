@@ -1,3 +1,7 @@
+import fs from 'fs';
+import { glob } from "glob";
+import path from 'path';
+
 export default () => {
     return ({
         name: 'output-sitemap',
