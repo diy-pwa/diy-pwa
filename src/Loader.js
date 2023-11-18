@@ -1,6 +1,7 @@
 import ZipLoader from "./ZipLoader.js";
 import StripeLoader from "./StripeLoader.js";
 import ProductLoader from "./ProductLoader.js";
+import Dev from "./Dev.js";
 
 import fs from 'fs';
 
@@ -91,6 +92,12 @@ export default {
                 await oZipLoader.load("https://corsproxy-dqo.pages.dev/corsproxy/github.com/diy-pwa/coming-soon/archive/refs/heads/main.zip", this.dest);
                 await oZipLoader.unzip();
                 return 0;
+            },
+            dev: ()=>{
+                const oDev = new Dev();
+                const server = oDev.app.listen(8080, ()=>{
+                    console.log(`listening on port ${server.address().port}`);
+                });
             },
             fetch: async ()=>{
                 let sCatalogue = this.argv[3];

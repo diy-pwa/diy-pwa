@@ -42,7 +42,10 @@ async function main(){
     }
     spinner.stop();
 }
-
-main().then(()=>{
-    process.exit();
-  });
+if(process.argv[2] == "dev"){
+    new Loader().runCommand();
+}else{
+    main().then(()=>{
+        process.exit();
+      });
+}
