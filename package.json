@@ -1,6 +1,6 @@
 {
   "name": "diy-pwa",
-  "version": "1.0.94",
+  "version": "1.0.95",
   "description": "Rapid 80% working prototype for sales engineers",
   "bin": "index.js",
   "files": [
@@ -57,7 +57,8 @@
   "dependencies": {
     "glob": "^10.3.10",
     "node-fetch": "^3.3.0",
-    "ora": "^6.3.1"
+    "ora": "^6.3.1",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.1.1",
@@ -73,7 +74,6 @@
     "cloudflare2express": "^1.0.2",
     "diy-pwa": "^1.0.66",
     "dotenv": "^16.1.4",
-    "express": "^4.18.2",
     "jszip": "^3.10.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
