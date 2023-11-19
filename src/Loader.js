@@ -25,12 +25,8 @@ export default class{
                         }
                     }
                 }
-                oContents.devDependencies.vite = "latest";
-                oContents.devDependencies.glob = "latest";
-                oContents.devDependencies["vite-plugin-static-copy"] = "latest";
                 oContents.devDependencies["diy-pwa"] = "latest";
-                oContents.scripts.start = oContents.scripts.dev = "vite dev";
-                oContents.scripts.build = "vite build";
+                oContents.scripts.start = oContents.scripts.dev = "diy-pwa dev";
                 oContents.type="module";
                 fs.writeFileSync(`${this.dest}/package.json`, JSON.stringify(oContents, null, 2));
                 if(!fs.existsSync(`${this.dest}/.gitignore`)){
@@ -39,37 +35,6 @@ export default class{
 node_modules
 dist
 package-lock.json
-`);
-                }
-                if(!fs.existsSync(`${this.dest}/vite.config.js`)){
-                    fs.writeFileSync(`${this.dest}/vite.config.js`,
-`import path from "path";
-import { glob } from "glob";
-import { viteStaticCopy } from 'vite-plugin-static-copy';
-import { SitemapPlugin } from 'diy-pwa/node';
-
-export default {
-    plugins: [
-        SitemapPlugin(),
-        viteStaticCopy({
-            targets: [
-                {
-                    src: 'README.md',
-                    dest: ''
-                }
-            ]
-        })
-    ],
-
-    build: {
-        outDir: path.join(__dirname, "dist"),
-        rollupOptions: {
-            input: glob.sync(path.resolve(__dirname, ".", "**/*.html"),
-                { ignore: ["dist/**", "src/**", "public/**", "functions/**"] }),
-
-        },
-    },
-};
 `);
                 }
                 if(!fs.existsSync(`${this.dest}/index.html`)){
