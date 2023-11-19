@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import SitemapPlugin from './SitemapPlugin';
 
 export default class{
     constructor(){
@@ -8,5 +9,7 @@ export default class{
             res.send("Rich was here!")
         });
         this.app.use(express.static(path.resolve(".")));
+        const oSitemap = SitemapPlugin();
+        oSitemap.configResolved({root:process.cwd(),publicDir:process.cwd()});
     }
 }
