@@ -25,9 +25,16 @@ export default class{
                         }
                     }
                 }
-                oContents.devDependencies["diy-pwa"] = "latest";
-                oContents.scripts.start = oContents.scripts.dev = "diy-pwa dev";
-                oContents.type="module";
+                if(oContents.scripts.dev && 
+                    !oContents.scripts.dev.match(/parcel/) &&
+                    !oContents.scripts.start){
+                        oContents.scripts.start = oContents.scripts.dev;
+                }else if((!oContents.scripts.start) || 
+                    oContents.scripts.dev.match(/parcel/) || 
+                    oContents.scripts.start.match(/parcel/)){
+                        oContents.scripts.start = oContents.scripts.dev = "diy-pwa dev";
+                        oContents.devDependencies["diy-pwa"] = "latest";
+                }
                 fs.writeFileSync(`${this.dest}/package.json`, JSON.stringify(oContents, null, 2));
                 if(!fs.existsSync(`${this.dest}/.gitignore`)){
                     fs.writeFileSync(`${this.dest}/.gitignore`, 
