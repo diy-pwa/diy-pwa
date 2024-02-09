@@ -18,7 +18,7 @@ export default () => {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `
             const aInputItems = glob.sync(path.resolve(oConfig.root, "**/*.html"),
-                { ignore: ["dist/**", "src/**", "public/**", "functions/**"] });
+                { ignore: ["dist/**", "src/**", "public/**", "functions/**", "node_modules/**"] });
             for (const item of aInputItems) {
                 sSitemap += `\t<url><loc>${oConfig.homepage}${item.replace(oConfig.root, "")}</loc></url>\n`
             }
