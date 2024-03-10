@@ -31,15 +31,17 @@
     "url": "https://github.com/diy-pwa/diy-pwa/issues"
   },
   "homepage": "https://diy-pwa.github.io/",
-  "dev-dependencies": {
-    "vitest": "latest"
-  },
   "dependencies": {
     "@php-wasm/node": "^0.6.2",
     "express": "^4.18.2",
     "glob": "^10.3.10",
+    "isomorphic-git": "^1.25.6",
     "jszip": "^3.10.1",
+    "memfs": "^4.7.7",
     "node-fetch": "^3.3.2",
     "promised-sqlite3": "^2.1.0"
+  },
+  "devDependencies": {
+    "vitest": "^1.3.1"
   }
 }
