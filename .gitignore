@@ -3,6 +3,7 @@
 !lib/**
 !spec
 !spec/**
+!index.html
 !bin
 !bin/**
 !wp-content
@@ -11,3 +12,4 @@
 !README.md
 !.gitignore
 !LICENSE
+!vite.config.js
