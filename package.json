@@ -9,7 +9,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "vitest run spec",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
