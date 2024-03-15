@@ -14,7 +14,7 @@ describe("tests WordpressLoader", ()=>{
         const oWPLoader = new WordpressLoader({fs, outDir});
         await oWPLoader.build("test");
         try{
-            await fs.promises.access("test/dist/test/index.html");
+            await fs.promises.access("test/dist/index.html");
             expect(true).toBe(true);
         }catch{
             expect(true).toBe(false);
