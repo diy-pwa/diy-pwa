@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-import {PhpLoader} from '../lib/index.js';
+import fs from 'fs';
+import {WordpressLoader} from '../lib/index.js';
 import path from "node:path";
 
 const sProg = path.basename(process.argv[1]);
 const sCommand = process.argv[2];
-const oLoader = new PhpLoader();
+const oLoader = new WordpressLoader({fs});
 let app = null;
 switch(sCommand){
     case "build":
