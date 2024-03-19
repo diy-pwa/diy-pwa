@@ -33,6 +33,7 @@
   "homepage": "https://diy-pwa.github.io/",
   "dependencies": {
     "@rhildred/php-wasm-node": "^0.6.2",
+    "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.2",
     "glob": "^10.3.10",
     "jszip": "^3.10.1",

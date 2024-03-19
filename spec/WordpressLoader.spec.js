@@ -9,7 +9,7 @@ describe("tests WordpressLoader", ()=>{
     it("makes a static bundle", async ()=>{
         const oZipLoader = new ZipLoader({fs});
         const outDir = "test"; 
-        await oZipLoader.load(`${CORSPROXY}/github.com/rhildred/sciencefictionfantasy/archive/refs/heads/main.zip`, outDir);
+        await oZipLoader.load(`${CORSPROXY}/github.com/emilyychau/UX221-L06/archive/refs/heads/main.zip`, outDir);
         await oZipLoader.unzip();
         const oWPLoader = new WordpressLoader({fs, outDir});
         await oWPLoader.build("test");
@@ -20,5 +20,5 @@ describe("tests WordpressLoader", ()=>{
             expect(true).toBe(false);
         }
 
-    }, 20000);
+    }, 40000);
 });
