@@ -3,9 +3,13 @@
 import fs from 'fs';
 import {WordpressLoader} from '../lib/index.js';
 import path from "node:path";
+// An import assertion in a static import
+import info from '../package.json' assert { type: "json" };
+
 
 const sProg = path.basename(process.argv[1]);
 const sCommand = process.argv[2];
+console.log(`${sProg} ${sCommand} version ${info.version}`)
 const oLoader = new WordpressLoader({fs});
 let app = null;
 switch(sCommand){
