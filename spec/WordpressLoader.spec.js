@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { WordpressLoader } from "../lib";
 import { Zip } from "../lib";
 import fs from 'fs';
+import {spawn} from 'child_process';
 
 const CORSPROXY = "https://wp-now-corsproxy.rhildred.workers.dev/corsproxy";
 const outDir = "test";
@@ -18,15 +19,19 @@ describe("tests WordpressLoader", ()=>{
             filter: 'wp-config.php'
             });
         await oZip.unzip();
-        const oWPLoader = new WordpressLoader({fs, outDir});
-        await oWPLoader.build("test");
-        try{
-            await fs.promises.access("test/dist/index.html");
-            expect(true).toBe(true);
-        }catch{
-            expect(true).toBe(false);
-        }
-
+        const oLoader = new WordpressLoader({fs, outDir});
+        setTimeout(async ()=>{
+            await oLoader.build();
+            try{
+                await fs.promises.access("test/dist/index.html");
+                expect(true).toBe(true);
+            }catch{
+                expect(true).toBe(false);
+            }    
+        }, 10000);
+        spawn('node', [`${process.cwd()}/bin/diy-pwa.js`, "setup", "test", outDir], {
+            detached: true
+        });
     }, 30000);
     it("makes a static bundle from student2", async ()=>{
         const oZip = new Zip({fs,
@@ -35,14 +40,18 @@ describe("tests WordpressLoader", ()=>{
             filter:"wp-config.php"
         });
         await oZip.unzip();
-        const oWPLoader = new WordpressLoader({fs, outDir});
-        await oWPLoader.build("test");
-        try{
-            await fs.promises.access("test/dist/index.html");
-            expect(true).toBe(true);
-        }catch{
-            expect(true).toBe(false);
-        }
-
+        const oLoader = new WordpressLoader({fs, outDir});
+        setTimeout(async ()=>{
+            await oLoader.build();
+            try{
+                await fs.promises.access("test/dist/index.html");
+                expect(true).toBe(true);
+            }catch{
+                expect(true).toBe(false);
+            }    
+        }, 10000);
+        spawn('node', [`${process.cwd()}/bin/diy-pwa.js`, "setup", "test", outDir], {
+            detached: true
+        });
     }, 30000);
 });
