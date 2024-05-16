@@ -10,7 +10,6 @@
 !wp-content/**
 !package.json
 !README.md
-!TODO.md
 !.gitignore
 !LICENSE
 !vite.config.js
