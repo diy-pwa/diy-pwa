@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import path from "node:path";
-import fs from "node:fs";
+// An import assertion in a static import
+import info from '../package.json' with { type: "json" };
 
-const info = JSON.parse(fs.readFileSync("./package.json"))
 const sProg = path.basename(process.argv[1]);
 const sCommand = process.argv[2];
 console.log(`${sProg} ${sCommand||"none"} version ${info.version}`)
