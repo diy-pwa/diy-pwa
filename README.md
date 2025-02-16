@@ -5,3 +5,5 @@ TLDR;
 
 ```bash
 npx diy-pwa index
+```
+

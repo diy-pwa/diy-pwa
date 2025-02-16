@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/diy-pwa/diy-pwa/issues"
   },
-  "homepage": "https://diy-pwa.github.io/",
+  "homepage": "https://diy-pwa.github.io/diy-pwa",
   "dependencies": {
     "glob": "^10.3.10"
   },
