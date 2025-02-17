@@ -41,7 +41,7 @@ class SearchResults extends HTMLElement{
             let res = await fetch("/searchindex.json");
             if(!res.ok){
                 // look for one up in window.location.pathname
-                const sFolder = window.location.pathname.split("/").unshift();
+                const sFolder = window.location.pathname.split("/")[1];
                 res = await fetch(`/${sFolder}/searchindex.json`);
                 if(!res.ok){
                     const sMessage = "Can't retrieve search index";
