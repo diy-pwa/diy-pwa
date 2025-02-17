@@ -1,7 +1,5 @@
 import lunr from "https://cdn.jsdelivr.net/npm/lunr@2.3.9/+esm";
 import * as cheerio from "https://cdn.jsdelivr.net/npm/cheerio@1.0.0/+esm";
-import formatjsintl from "https://cdn.jsdelivr.net/npm/@formatjs/intl@3.1.4/+esm"
-
 
 class Blur {
     div;
@@ -39,11 +37,24 @@ class SearchResults extends HTMLElement{
     async connectedCallback(){
         const urlParams = new URLSearchParams(window.location.search);
         if(urlParams.has("s") && urlParams.get("s") != ""){
-            const res = await fetch("searchindex.json");
+            const sLang = document.querySelector("html").lang || "en";
+            let res = await fetch("/searchindex.json");
+            if(!res.ok){
+                // look for one up in window.location.pathname
+                const sFolder = window.location.pathname.split("/").unshift();
+                res = await fetch(`/${sFolder}/searchindex.json`);
+                if(!res.ok){
+                    const sMessage = "Can't retrieve search index";
+                    if(sLang.indexOf("fr") != -1){
+                        sMessage = `Impossible de récupérer l'index de recherche`
+                    }
+                    new Blur(sMessage);
+                    return;
+                }
+            }
             const idx = lunr.Index.load(await res.json());
             const sSearchString = urlParams.get("s");
             const oResults = idx.search(sSearchString);
-            const sLang = document.querySelector("html").lang || "en";
             let sMessage = `<h1>Search results for <em>${sSearchString}</em></h1>`
             if(sLang.indexOf("fr") != -1){
                 sMessage = `<h1>Résultats de recherche pour <em>${sSearchString}</em></h1>`
