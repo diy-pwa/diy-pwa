@@ -9,7 +9,7 @@ import {createSearch} from "../lib/createSearch.js";
 const sProg = path.basename(process.argv[1]);
 const sCommand = process.argv[2];
 console.log(`${sProg} ${sCommand||"none"} version ${info.version}`)
-const outDir = process.argv[4] || ".";
+const outDir = process.argv[3] || ".";
 let app = null;
 switch(sCommand){
     case "sitemap":
