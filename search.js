@@ -29,7 +29,7 @@ class Blur {
         }
         </style>
         <div>${message}</div>`;
-        oBody?.append(this.div);
+        oBody?.insertAdjacentElement("afterbegin", this.div);
     }
 }
 
