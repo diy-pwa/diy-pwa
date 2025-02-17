@@ -1,5 +1,6 @@
 import lunr from "https://cdn.jsdelivr.net/npm/lunr@2.3.9/+esm";
 import * as cheerio from "https://cdn.jsdelivr.net/npm/cheerio@1.0.0/+esm";
+import formatjsintl from "https://cdn.jsdelivr.net/npm/@formatjs/intl@3.1.4/+esm"
 
 
 class Blur {
@@ -25,8 +26,11 @@ class Blur {
             text-overflow: ellipsis;
             -webkit-box-orient: vertical;
         }
+        #blurred_background div{
+            padding: 0 1em;
+        }
         </style>
-        ${message}`;
+        <div>${message}</div>`;
         oBody?.append(this.div);
     }
 }
@@ -39,7 +43,11 @@ class SearchResults extends HTMLElement{
             const idx = lunr.Index.load(await res.json());
             const sSearchString = urlParams.get("s");
             const oResults = idx.search(sSearchString);
+            const sLang = document.querySelector("html").lang || "en";
             let sMessage = `<h1>Search results for <em>${sSearchString}</em></h1>`
+            if(sLang.indexOf("fr") != -1){
+                sMessage = `<h1>Résultats de recherche pour <em>${sSearchString}</em></h1>`
+            }
             if(oResults.length){
                 for(let oResult of oResults){
                     const res = await fetch(oResult.ref);
@@ -68,7 +76,12 @@ class SearchResults extends HTMLElement{
                     sMessage += `<a href="${oResult.ref}"><h2>${sTitle}</h2><p>${sBody}</p></a>`;
                 }
             }else{
-                sMessage += `no search results for ${sSearchString}`
+                if(sLang.indexOf("fr") == -1){
+                    sMessage += `no search results for <em>${sSearchString}</em>`;
+                    
+                }else{
+                    sMessage += `aucun résultat de recherche pour <em>${sSearchString}</em>`
+                }
             }
             const oBlur = new Blur(sMessage);
         }
