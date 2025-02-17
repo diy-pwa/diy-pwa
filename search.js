@@ -75,7 +75,7 @@ class SearchResults extends HTMLElement{
                     $("script").remove();
                     $("style").remove();
                     const sTitle = $("h1").text().replace(/\s+/g, ' ').trim();
-                    let sBody = $("body").text().replace(/\s+/g, ' ').trim().replace(sTitle, "");
+                    let sBody = $("main").text().replace(/\s+/g, ' ').trim().replace(sTitle, "");
                     let minIndex = sBody.length;
                     for(let term of sSearchString.split(" ")){
                         const oRegex = new RegExp(term, "g");
