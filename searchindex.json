@@ -1,1 +1,256 @@
-{"version":"2.3.9","fields":["title","body"],"fieldVectors":[["title/index.html",[0,0.288,1,0.182]],["body/index.html",[1,0.182,2,0.288,3,0.288]]],"invertedIndex":[["goe",{"_index":3,"title":{},"body":{"index.html":{}}}],["here",{"_index":1,"title":{"index.html":{}},"body":{"index.html":{}}}],["search",{"_index":0,"title":{"index.html":{}},"body":{}}],["text",{"_index":2,"title":{},"body":{"index.html":{}}}]],"pipeline":["stemmer"]}
+{
+    "version": "2.3.9",
+    "fields": [
+        "title",
+        "body"
+    ],
+    "fieldVectors": [
+        [
+            "title//diy-pwa/index.html",
+            [
+                0,
+                0.288,
+                1,
+                0.182
+            ]
+        ],
+        [
+            "body//diy-pwa/index.html",
+            [
+                1,
+                0.251,
+                2,
+                0.288,
+                3,
+                0.288,
+                4,
+                0.288,
+                5,
+                0.288,
+                6,
+                0.288,
+                7,
+                0.288,
+                8,
+                0.288,
+                9,
+                0.288,
+                10,
+                0.288,
+                11,
+                0.288,
+                12,
+                0.288,
+                13,
+                0.288,
+                14,
+                0.288,
+                15,
+                0.288,
+                16,
+                0.288,
+                17,
+                0.288,
+                18,
+                0.288
+            ]
+        ]
+    ],
+    "invertedIndex": [
+        [
+            "dfjksdahfdjksahfjksadlhfjasdkhfasdkjfhkjdshfjksadhfkjhasdkjfhskdjhfadslafhsdajkhf",
+            {
+                "_index": 17,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "djfajdshfkjsadhfasdfjasdjkfsdjafjkasdfdsakl;fjsdaflkasdjklfasdjklfjsakdljfkalsdfjsdalkfjsla;dkfjasdklfjsadkjfaskdlflajjhsdkjfhasdjhfasjdhfkjadsfkjdhfjkhdassdsljkfhskdjfjjdfshfjklsdhfkjhsfjfdsgjdfhgjdsfklghdfsjhgdsfjgdfsjgdfjkghfdsgldfsgsdfjlgjldfghdfsjhgsdlfghdsfhlghsdfjkhlhdfsdka;flajdasl;kjfklsadjflaksdjflkasdjflkdsj",
+            {
+                "_index": 14,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "djfhdsjkfhjkdsahfjkalsdhfsdahfsadkjfhsadjkfhsadjkfhasdjkfhjksdfsd",
+            {
+                "_index": 4,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "dk;fjadslk;fjkjdsafkl;dsajfdskla;jfksladjfskladjflkasdjfasdkjflskadjflksdjaklfjsdlkajfas;jdkhfskajdlhfasldhfasldjhfasjdklfhalsj",
+            {
+                "_index": 16,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "dkfjasdklfjsadkjfaskdlflajjhsdkjfhasdjhfasjdhfkjadsfkjdhfjkhdassdsljkfhskdjfjjdfshfjklsdhfkjhsfjfdsgjdfhgjdsfklghdfsjhgdsfjgdfsjgdfjkghfdsgldfsgsdfjlgjldfghdfsjhgsdlfghdsfhlghsdfjkhlh",
+            {
+                "_index": 7,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "dkfjsdlk;afjalksdjflkasd;jfakl;sjfkljdslkfjldskjflksad;fk;dsafjsdla;fjldskajf",
+            {
+                "_index": 15,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "fddsalkfjdsklajfasdkjfjaskdl;fjalksdjfkl;sjf;sjfkljdslkfjldskjflksad",
+            {
+                "_index": 18,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "fdjkhfjkdshfkjasdhfkljasdhfkjasdhfkjsadhfkjsadhfjksadhfjkasdhfjksahdjkfhjkhjkdskjahfjksdhfkj",
+            {
+                "_index": 11,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "fdklgjfdklgjdsklfjglksjgklsjfdjgdklfsjglskdjglks;jklfdjglk;sjgsfdslkgjsdf;kgjdf;lkg",
+            {
+                "_index": 2,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "gjkfdsjgkldsfjgjdfsklgjsfdklgjksdfjgsdfklgjkdfsglkfjdklgj",
+            {
+                "_index": 3,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "goe",
+            {
+                "_index": 9,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "here",
+            {
+                "_index": 1,
+                "title": {
+                    "/diy-pwa/index.html": {}
+                },
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "jdjksldhfjksdahfjksdahfjkasdhfjklsadhfjkasdhfjkasdhfjkdhsjkfhsdjkfhsjkdahfkjsdahfjksadhfkjh",
+            {
+                "_index": 10,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "jdkhfskajdlhfasldhfasldjhfasjdklfhalsj",
+            {
+                "_index": 6,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "kjdhfkjdhsfjsdlfjksdfakjl",
+            {
+                "_index": 5,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "kjdsfkjsdjfasdjfkasjdfjlaksdjflksdjfj;lsadjfksdjflkasdjlfkjsadlkfjasdlkjflkdsjflksdjfklasjlkklasjsfjlkasd",
+            {
+                "_index": 13,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "kldjfklasdjflkajsdflkasdfksadfjasdf;asdjfklsdajflksadjfklsadjflksjdalkfjsdlkfjaslkdlkjasdlkajflkasjfa",
+            {
+                "_index": 12,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ],
+        [
+            "search",
+            {
+                "_index": 0,
+                "title": {
+                    "/diy-pwa/index.html": {}
+                },
+                "body": {}
+            }
+        ],
+        [
+            "text",
+            {
+                "_index": 8,
+                "title": {},
+                "body": {
+                    "/diy-pwa/index.html": {}
+                }
+            }
+        ]
+    ],
+    "pipeline": [
+        "stemmer"
+    ]
+}

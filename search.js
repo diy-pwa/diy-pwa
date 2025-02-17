@@ -61,19 +61,14 @@ class SearchResults extends HTMLElement{
             }
             if(oResults.length){
                 for(let oResult of oResults){
-                    let res = await fetch(`/${oResult.ref}`);
+                    let res = await fetch(oResult.ref);
                     if(!res.ok){
-                        // look for one up in window.location.pathname
-                        const sFolder = window.location.pathname.split("/").unshift();
-                        res = await fetch(`/${sFolder}/${oResult.ref}`);
-                        if(!res.ok){
-                            const sMessage = "Can't retrieve search index";
-                            if(sLang.indexOf("fr") != -1){
-                                sMessage = `Impossible de récupérer l'index de recherche`
-                            }
-                            new Blur(sMessage);
-                            return;
+                        const sMessage = "Can't retrieve referenced file"
+                        if(sLang.indexOf("fr") != -1){
+                            sMessage = `Impossible de récupérer l'index de recherche`
                         }
+                        new Blur(sMessage);
+                        return;
                     }
                     const sText = await res.text();
                     const $ = cheerio.load(sText);
